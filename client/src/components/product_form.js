@@ -22,19 +22,19 @@ const ProductForm = () => {
     }
 
     return (
-        <div>
+        <div class="container">
             <h1>Product Manager</h1>
         
             <form onSubmit={onSubmitHandler}>
-                <div>
+                <div class="inputs">
                     <label>Title</label>
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
-                <div>
+                <div  class="inputs">
                     <label>Price</label>
                     <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
                 </div>
-                <div>
+                <div  class="inputs">
                     <label>Description</label>
                     <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>

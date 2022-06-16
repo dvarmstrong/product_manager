@@ -2,7 +2,32 @@
   text-align: center;
 }
 
-.App-logo {
+/* .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ font: 300 20px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: aquamarine;
+  height: 300px;
+  width: 500px;
+  padding: 20px;
+  margin: 25px;
+  border-radius: 50px;
+} */
+
+.inputs {
+ font-size:25px;
+}
+
+input {
+  font-size:20px;
+  
+}
+
+
+
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +60,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
