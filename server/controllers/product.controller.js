@@ -1,4 +1,5 @@
 const Product = require('../models/product.model');
+const { validateProduct } = require('../validation/product.validation')
 
 module.exports.getProducts = (req, res) => {
     Product.find()
@@ -11,8 +12,18 @@ module.exports.getProducts = (req, res) => {
 }
 
 module.exports.createProduct = (req, res) => {
-    Product.create(req.body)
+    const { errors, valid } = validateProduct(req.body)
 
-        .then(product => res.json(product))
-        .catch(err => res.status(400).json(err));
+    try {
+        if (!valid) {
+            res.status(200).json(errors)
+        } else {
+            Product.create(req.body)
+
+                .then(product => res.json(product))
+                .catch(err => res.status(400).json(err));
+        }
+    } catch (error) {
+        res.status(400).json(error)
+    }
 }
