@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import axios from 'axios';
 
 const ProductForm = () => {
@@ -21,28 +21,31 @@ const ProductForm = () => {
             .catch(err=>console.log(err))
     }
 
+
     return (
         <div class="container">
             <h1>Product Manager</h1>
         
-            <form onSubmit={onSubmitHandler}>
-                <div class="inputs">
+            <form className='mb-3' onSubmit={onSubmitHandler}>
+                <div class="form-control ">
                     <label>Title</label>
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
-                <div  class="inputs">
+                <div  class="form-control">
                     <label>Price</label>
                     <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
                 </div>
-                <div  class="inputs">
+                <div  class="form-control">
                     <label>Description</label>
                     <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <button type="submit">Submit</button>
+            </form><hr/>
+            
+            
 
-            </form>
         </div>
         
     )
-}
+};
 export default ProductForm;
