@@ -1,7 +1,8 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios';
 
-const ProductForm = () => {
+const ProductForm = (props) => {
+    const {productList, setProductList} = props;
     const[title, setTitle] = useState('');
     const[price, setPrice] = useState('');
     const[description, setDescription] = useState('');
@@ -16,6 +17,10 @@ const ProductForm = () => {
             .then(res=>{
                 console.log(res);
                 console.log(res.data);
+                setProductList([...productList, res.data]);
+                setTitle('');
+                setPrice('');
+                setDescription('');
             
             })
             .catch(err=>console.log(err))
@@ -23,21 +28,24 @@ const ProductForm = () => {
 
 
     return (
-        <div class="container">
-            <h1>Product Manager</h1>
+        <div className="container-md">
+            <header>Product Manager</header>
         
-            <form className='mb-3' onSubmit={onSubmitHandler}>
-                <div class="form-control ">
+            <form className='form ' onSubmit={onSubmitHandler}>
+                <div className="form-control ">
                     <label>Title</label>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input type="text" value={title} name="title"
+                    onChange={(e) => setTitle(e.target.value)} />
                 </div>
-                <div  class="form-control">
+                <div  className="form-field">
                     <label>Price</label>
-                    <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <input type="text" value={price} name="price"
+                    onChange={(e) => setPrice(e.target.value)} />
                 </div>
-                <div  class="form-control">
+                <div  className="form-field">
                     <label>Description</label>
-                    <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <input type="text" value={description}name="description"
+                    onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <button type="submit">Submit</button>
             </form><hr/>

@@ -1,16 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-import ProductForm from './components/ProductForm';
-import ProductList from './components/ProductList';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import OneProduct from './components/OneProduct';
+import Main from './views/Main';
+import Update from './components/Update';
 
 
 function App() {
   return (
-    <div className="App">
-      <ProductForm/>
-      <ProductList/>
+      <BrowserRouter>
+        <div className="App">
+          
+    
+          <Routes>
+            <Route path="/" element={<Main/>} />
+            <Route path="/product/:id" element={<OneProduct/>} />
+            <Route path ="/product/update/:id" element={<Update/>} />
 
-    </div>
+          </Routes>
+        </div>
+      </BrowserRouter>
+      
+      
+
+
   );
 }
 
